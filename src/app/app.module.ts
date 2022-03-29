@@ -173,8 +173,9 @@ import { AddCategComponent } from './add-categ/add-categ.component';
     {
       path:'**',
       component:NotFoundComponent
-    }
-    ]),
+    },
+    
+    ],{useHash:true}),
     NgbModule
   ],
   providers: [
