@@ -1,0 +1,30 @@
+.My_element{
+    justify-content: space-between;
+}
+.form_card{
+    box-shadow: 3px 9px 15px grey;
+    border-radius: 6px;
+}
+.card_add_mission{
+    box-shadow: 3px 9px 15px grey;
+    border-radius: 6px;
+
+}
+
+/*Paramètre mobile */
+
+@media screen and (max-width:576px){
+    .form_card{
+       width:22rem !important;
+
+   }
+   .col-8 {
+    flex: 0 0 auto;  
+    width: 42.666667%;
+
+}
+}
+.prix{
+    text-decoration: none;
+    cursor: pointer;
+}

@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+    <div class="col-12 col-sm-6 myMissionOne">
+      <div class="card mb-5 mt-3 card_mission" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title" *ngIf="missionDeleted">{{missionDeleted.mission.name}}</h5>
+        <p class="card-text mt-3" *ngIf="missionDeleted" >Nom de l'entreprise:<strong>{{missionDeleted.mission.userCreateMission.nameofEntreprise}}</strong></p>
+        <p class="card-text" *ngIf="missionDeleted"  >Detail de la mission:<strong>{{missionDeleted.mission.details}}</strong></p>
+        <p class="card-text" *ngIf="missionDeleted" >Temps de la mission:{{missionDeleted.mission.time}}H</p>
+        <p class="card-text mt-3" *ngIf="missionDeleted" >Nombre de jour:{{missionDeleted.mission.nmbreJour}}J</p>
+        <p class="card-text mt-3" *ngIf="missionDeleted">Prix de la mission: <strong>{{missionDeleted.mission.priceOfHours}}€/H</strong></p>
+        <p class="card-text mt-3" *ngIf="missionDeleted">Prix total: <strong> {{missionDeleted.mission.totalPrice | currency: '€'}} </strong></p>
+        <p class="card-text mt-3" *ngIf="missionDeleted">Pour le :<strong>{{missionDeleted.mission.when | date:'short'}}</strong></p>
+        <p class="card-text mt-3">Format de la date :<strong>Mois/Jour/Année, Heure</strong></p>
+        <p class="card-text mt-3 text-warning">INFO:AM heure du matin,PM Heure de  l'après midi.</p>
+        <p class="card-text mt-3" *ngIf="missionDeleted">Adresse de l'entreprise: <strong>{{missionDeleted.mission.userCreateMission.locationofEntreprise}} {{missionDeleted.mission.userCreateMission.complementLocationofEntreprise}} {{missionDeleted.mission.userCreateMission.zipCode}} </strong></p>
+        <p class="card-text mt-3" *ngIf="missionDeleted" >Date de publication: <strong>{{missionDeleted.mission.date | date:'medium' }}</strong></p>
+        <a  class="btn btn-danger" (click)="deleteTheMission()">Supprimer la mission</a>
+      </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 myMissionTwo"></div>
+    </div>
+  </div>

@@ -1,0 +1,30 @@
+<p class="text-danger text-center mt-3"><strong>P.S:Pour pouvoir accepter une mission vous devez dans un premier temps ajouter vos  expériences professionnels.</strong></p>
+<div class="exper_pro d-flex justify-content-center align-items-center">
+  <a routerLink="/parameter" class="mnBtn" style="cursor: pointer;">Ajouter mes expériences professionnels.</a>
+</div>
+<div class="container">
+    <div class="row">
+    <div class="col-12 col-sm-6 myMissionOne">
+      <div class="card mb-5 mt-3 card_mission" style="width: 18rem;">
+      <div class="card-body">
+        <h5 class="card-title" *ngIf="myMission">{{myMission.name}}</h5>
+        <p class="card-text mt-3" *ngIf="myMission">Nom de l'entreprise:<strong>{{myMission.userCreateMission.nameofEntreprise}}</strong></p>
+        <p class="card-text" *ngIf="myMission" >Detail de la mission:<strong>{{myMission.details}}</strong></p>
+        <p class="card-text" *ngIf="myMission">Temps de la mission:{{myMission.time}}H</p>
+        <p class="card-text mt-3" *ngIf="myMission">Nombre de jour:{{myMission.nmbreJour}}J</p>
+        <p class="card-text mt-3" *ngIf="myMission">Mission disponible pour: <strong>{{myMission.availableForPersonn}} personne(s).</strong></p>
+        <p class="card-text mt-3" *ngIf="myMission">Prix de la mission: <strong>{{myMission.priceOfHours | currency: '€'}} /H</strong></p>
+        <a *ngIf="myMission && myMission.availableForPersonn!=0"  class="btn btn-primary" (click)="acceptMission()" >Accepter la mission</a>
+        <p class="card-text mt-3" *ngIf="myMission">Prix total: <strong> {{myMission.totalPrice | currency: '€'}} </strong></p>
+        <p class="card-text mt-3" *ngIf="myMission">Pour le :<strong>{{myMission.when | date:'short'}}</strong></p>
+        <p class="card-text mt-3">Format de la date :<strong>Mois/Jour/Année, Heure</strong></p>
+        <p class="card-text mt-3 text-warning">INFO:AM heure du matin,PM Heure de  l'après midi.</p>
+        <p class="card-text mt-3" *ngIf="myMission">Adresse de l'entreprise: <strong>{{myMission.userCreateMission.locationofEntreprise}} {{myMission.userCreateMission.complementLocationofEntreprise}} {{myMission.userCreateMission.zipCode}}</strong></p>
+        <p class="card-text mt-3" *ngIf="myMission">Date de publication: <strong>{{myMission.date | date:'medium'}}</strong></p>
+      </div>
+      </div>
+    </div>
+    <div class="col-12 col-sm-6 myMissionTwo"></div>
+    </div>
+  </div>
+

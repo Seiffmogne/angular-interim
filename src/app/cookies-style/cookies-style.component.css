@@ -1,0 +1,36 @@
+
+/*Paramétre Mobile */
+
+@media screen and (max-width:575px){
+    .my_text{
+        font-size: 10px;
+    text-align: center;
+    margin-bottom: 0px!important;
+    }
+    .mySvg{
+        margin-left: 333px;
+    }
+    .aContain{
+        position: fixed;
+        bottom: 46px;
+    }
+}
+
+/*parametre Ordi */
+@media screen and (min-width:376px){
+    .aContain{
+        position: fixed;
+       bottom: 0px !important;
+       
+    }
+    .mySvg{
+        margin-left: 1294px;
+        
+    }
+    .my_text{
+        font-size: 13px; margin-bottom: 0px !important;
+
+    }
+}
+
+/*End Parametre ordi */

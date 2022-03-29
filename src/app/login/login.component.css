@@ -1,0 +1,9 @@
+.mnbtn{
+    margin-left: 48px;
+}
+.a_link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}

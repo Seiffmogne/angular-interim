@@ -1,0 +1,21 @@
+
+<div class="container">
+    <div class="row d-flex justify-content-center align-items-center">
+        <h4 class="d-flex justify-content-center align-items-center mt-5">Rechercher une mission</h4>
+        <div class="card mt-3" style="width: 18rem;">
+            <div class="card-body">
+              <h6 class="card-title"><strong></strong></h6>
+              <form #f="ngForm" (ngSubmit)="searchMission(name.value,local.value)">
+                  <div class="nom_mission">
+                      <input ngModel #name="ngModel" name="name"  type="email"  class="form-control mt-3"  placeholder="Domaine" >
+                  </div>
+                  <div class="zipCode">
+                      <input ngModel name="zipCode" #local="ngModel" type="text" class="form-control mt-3" placeholder="Code postal" >  
+                      </div>    
+                <button  class="btn btn-primary mt-3 mnbtn">Rechercher</button>
+              </form>
+            
+            </div>
+          </div>
+    </div>
+</div>

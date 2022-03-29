@@ -1,0 +1,17 @@
+<div class="header">
+    <h2>{{data?.title}}</h2>
+    <button  mat-icon-button [mat-dialog-close]="false">
+        <mat-icon><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+            <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+          </svg></mat-icon>
+    </button>
+</div>
+
+<div mat-dialog-content>
+    {{data?.message}}
+</div>
+
+<div mat-dialog-actions [align]="'end'">
+    <button mar-raised-button [mat-dialog-close]="false"  class="btn btn-primary">{{data?.cancelText}}</button>
+    <button mar-raised-button color="danger" class="btn btn-danger" [mat-dialog-close]="true">{{data?.confirmText}}</button>
+</div>

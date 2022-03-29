@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="row d-flex justify-content-center align-items-center">
+        <h4 class="d-flex justify-content-center align-items-center mt-5">Connexion ou Inscription</h4>
+        <div class="card mt-3" style="width: 18rem;">
+            <div class="card-body">
+              <h6 class="card-title"><strong>J'ai déja un compte habere</strong></h6>
+              <form #form="ngForm" (ngSubmit)="onLogin(form.value)">
+                  <div class="email">
+                      <input ngModel #email="ngModel" name="email"  type="email"  class="form-control mt-3" id="email" placeholder="Adresse email" required>
+                      <div class="alert alert-danger" *ngIf="email.touched && !email.valid">
+                        <div *ngIf="email.errors && email.errors['required']">Un email est requis</div>
+                      </div>
+                  </div>
+                  <div class="password">
+                      <input ngModel #password="ngModel" name="password" type="password" class="form-control mt-3" placeholder="mot de passe" required>
+                      <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
+                        <div *ngIf="password.errors && password.errors['required']">Mot de passe requis!</div>
+                      </div>
+                  </div>
+                <button  class="btn btn-primary mt-3 mnbtn">Se connecter</button>
+              </form>
+            
+            </div>
+          </div>
+          <a class="a_link mt-3" routerLink="/motDePasseOublie">Mot de passe oublié?</a>
+    </div>
+</div>
+<add-user></add-user>
+<cookies-style></cookies-style>

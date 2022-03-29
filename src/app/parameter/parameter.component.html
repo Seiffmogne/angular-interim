@@ -1,0 +1,82 @@
+<h3 class="text-center mb-3">Compte personnel.</h3>
+<p class="text-center"><strong> Nous faisons en sorte de mettre l'application à jour quotidiennement afin de vous apporter la meilleure expérience utilisateur.</strong></p>
+<div class="myVerif d-flex justify-content-center">
+<a class="mt-3" (click)=" verifAccount()">Faire vérifier son compte</a>
+</div>
+<div class="container-fluid">
+    <p class="text-danger text-center mt-3"><strong>P.S:Pour pouvoir accepter une mission vous devez dans un premier temps ajouter vos  expériences professionnels.</strong></p>
+    <div class="parlez_nous d-flex justify-content-center align-items-center mt-5">
+       <button class="btn btn-primary" (click)="clickTheBtn()"><strong>Parlez-nous un peu de vous <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+        <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+      </svg> </strong></button>
+    </div>
+    <form #experience="ngForm" (ngSubmit)="saveExperience(experience.value)" class="d-flex  justify-content-center align-items-center mt-5 mb-5" *ngIf="isSelected">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+              <h5 class="card-title">Expérience professionnel</h5>
+              <div class="form-group">
+                  <label for="profession" class="mt-3">Intitulé du Poste</label>
+                  <input ngModel name="profession" #prof="ngModel" type="text" minlength="3" maxlength="300" class="form-control mt-3"  placeholder="profession" required id="profession">
+              </div>
+              <div class="alert alert-danger" *ngIf="prof.touched && !prof.valid">
+                <div *ngIf="prof.errors && prof.errors['required']">La profession doit être définis</div>
+                <div *ngIf="prof.errors && prof.errors['minlength']">Elle doit contenir au moins 3 charactères.</div>
+                </div>
+              <div class="form-group">
+                <label for="NameEntre" class="mt-3">Nom de l'entreprise</label>
+                <input ngModel type="text" minlength="2" maxlength="300" name="nameOfCompagnie" #nameCom="ngModel" class="form-control mt-3"  placeholder="Entreprise" required id="NameEntre">
+            </div>
+            <div class="alert alert-danger" *ngIf="nameCom.touched && !nameCom.valid">
+                <div *ngIf="nameCom.errors && nameCom.errors['required']">Le nom de l'entreprise  doit être définis</div>
+                <div *ngIf="nameCom.errors && nameCom.errors['minlength']">Il doit contenir au moins 2 charactères.</div>
+                </div>
+            <div class="form-group">
+                <label for="localis" class="mt-3">Localisation(facultative)</label>
+                <input ngModel type="text" minlength="3" maxlength="2000" name="localisation" #loca="ngModel" class="form-control mt-3"  placeholder="Localisation"  id="localis">
+            </div>
+            <div class="form-group">
+                <label for="begini" class="mt-3">Date de début</label>
+                <input ngModel type="date" name="dateOfBeginning" #dateBeg="ngModel" class="form-control mt-3"  placeholder="Mois" required id="begini">
+            </div>
+            <div class="alert alert-danger" *ngIf="dateBeg.touched && !dateBeg.valid">
+                <div *ngIf="dateBeg.errors && dateBeg.errors['required']">La date du début doit être défini.</div>
+                </div>
+            <div class="checkbox mt-3">
+                <label>
+                <strong> Je travaille ici actuellement </strong>  <input [(ngModel)]="actualJobs" #actual="ngModel"  name="actualJob" type="checkbox" >
+                </label>
+            </div>
+            <div class="form-group" *ngIf="!actualJobs">
+                <label for="End" class="mt-3">Date de fin(obligatoire)</label>
+                <input ngModel type="date" name="dateofEnd" #dateEnd="ngModel" class="form-control mt-3"    id="End">
+            </div>
+            <div class="form-group">
+                <label for="Desc" class="mt-3">Description</label>
+                <textarea  minlength="3" class="form-control" maxlength="10000000" ngModel name="description" #descri="ngModel" id="Desc" cols="29" placeholder="Description facultative" ></textarea>
+            </div>
+            <div class="mnBtnPri d-flex justify-content-center align-items-center">
+                <button class="btn btn-primary mt-3" [disabled]="!experience.valid">Enregistrer</button>
+            </div>
+            </div>     
+          </div>
+    </form>
+<div class="mex_exper d-flex justify-content-center align-items-center mb-5">
+    <div class="card mt-3 card_exper" style="width: 14rem;" *ngFor="let exp of experience">
+        <div class="card-body">
+          <h5 class="card-title">{{exp.profession}}</h5>
+          <p class="card-text mt-3">nom de l'entreprise:<strong>{{exp.nameOfCompagnie}}</strong> </p>
+          <p class="card-text mt-3">Localisation:<strong>{{exp.localisation}}</strong> </p>
+          <p class="card-text mt-3">date de début: <strong>{{exp.dateOfBeginning | date:'mediumDate'}}</strong> </p>
+          <p class="card-text">format de la date:<strong>Mois Jour,Année</strong> </p>
+          <p class="card-text mt-3" *ngIf="exp.actualJob">actuellement mon poste: <strong>Oui</strong> </p>
+          <p class="card-text mt-3" *ngIf="!exp.actualJob">actuellement mon poste: <strong>Non</strong> </p>
+          <p class="card-text mt-3" *ngIf="!exp.actualJob">date de fin:<strong>{{exp.dateofEnd| date:'mediumDate'}}</strong></p>
+          <p class="card-text mt-3">Description:<strong>{{exp.description}}</strong> </p>
+          <a [routerLink]="['/experience',exp._id]" class="btn btn-primary">Editer</a>
+        </div>
+      </div>
+    </div>  
+</div>
+<cookies-style></cookies-style>
+

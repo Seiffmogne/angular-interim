@@ -1,0 +1,113 @@
+.recherche{
+    border: 1px solid #dfdbdb;
+    padding: 10px;
+    /* padding: 0px 0px; */
+    border-radius: 6px;
+    background-color: li;
+    margin: 28px;
+    box-shadow: 3px 4px 5px grey;
+
+}
+.my_image{
+    border-radius: 10px;
+}
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 71%;
+}
+.entreprise{
+    margin-top: 30px;
+    display: flex;
+
+}
+.mesDivEntre{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.mesDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/*paramétre disponible uniquement sur Mobile */
+
+@media screen and (max-width:575px){
+    .recherche{
+        margin-top: -26px
+
+    }
+    .mes_recherches{
+        display: block !important;
+    }
+    .mesDiv{
+     display: flex;
+     justify-content: center;
+      align-items: center;
+      margin-bottom: 30px;
+    }
+    .entreprise{
+        display: block!important;
+    }
+    .mesDivEntre{
+        margin-bottom: 30px;
+    }
+    .my_text{
+        font-size: 10px;
+       text-align: center;
+      margin-bottom: 0px!important;
+    }
+    .mySvg{
+        margin-left: 333px;
+    }
+    
+}
+/*Footer parameter */
+.main{
+    height: 104px;
+}
+.mesLiens{
+    text-decoration: none;
+    color: black;
+    cursor: pointer;
+    margin: 13px;
+}
+.mesElementsFooter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/*End footer parameter */
+
+.btn{
+    border: solid #eaeaea 1px;
+}
+.div_contain{
+    align-items: flex-end;
+    z-index: 999;
+    top: 0;
+    left: 0;
+}
+
+/*Parametre ordie */
+
+@media screen and (min-width:376px){
+    .aContain{
+        width: 28%;
+    margin-left: 44px;
+       
+    }
+    .mySvg{
+        margin-left: 1294px;
+        
+    }
+    .my_text{
+        font-size: 13px; margin-bottom: 0px !important;
+
+    }
+}

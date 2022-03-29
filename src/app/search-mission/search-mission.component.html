@@ -1,0 +1,38 @@
+<div class="card mb-5 mt-3 card_mission" style="width: 18rem;" *ngFor="let m of missionSearch">
+    <div class="card-body ">
+      <h5 class="card-title">{{m.name}}</h5>
+      <p class="card-text mt-3">Nom de l'entreprise: <strong>{{m.userCreateMission.nameofEntreprise}}</strong></p>
+      <p class="card-text">Detail de la mission:<strong>{{m.details}}</strong></p>
+      <p class="card-text">Temps de la mission: {{m.time}}H/J</p>
+      <p class="card-text mt-3">Nombre de jour: {{m.nmbreJour}}J</p>
+      <p class="card-text mt-3">Mission disponible pour: <strong> {{m.availableForPersonn}} personne(s).</strong></p>
+      <p class="card-text mt-3">Prix de la mission: <strong>{{m.priceOfHours | currency: '€'}}/H</strong></p>
+      <a [routerLink]="['/missions',m._id]" class="btn btn-primary">Afficher la mission</a>
+      <p class="card-text mt-3">Prix total: <strong> {{m.totalPrice | currency: '€'}} </strong></p>
+      <p class="card-text mt-3">Pour le :<strong>{{m.when | date:'short'}}</strong></p>
+      <p class="card-text mt-3">Format de la date :<strong>Mois/Jour/Année, Heure</strong></p>
+      <p class="card-text mt-3 text-warning">INFO:AM heure du matin,PM Heure de  l'après midi.</p>
+      <p class="card-text mt-3">Adresse de l'entreprise: <strong>{{m.userCreateMission.locationofEntreprise}} {{m.userCreateMission.complementLocationofEntreprise}} {{m.userCreateMission.zipCode}}</strong></p>
+      <p class="card-text mt-3">Date de publication: <strong>{{m.date | date:'medium'}}</strong></p>
+    </div>
+ 
+  </div>
+  <div class="notFound" *ngIf="number" style="margin-top: 100px;">
+      <div class="container" style="display: flex;
+      justify-content: center;
+      align-items: center;">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body contain">
+              <h6 class="card-title text-primary text-center mb-5">Nous ne parvenons pas à trouver les missions recherchées.</h6>
+              <svg xmlns="http://www.w3.org/2000/svg" style="width: 66px;" fill="currentColor" class="bi bi-lightbulb-off mb-3" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M2.23 4.35A6.004 6.004 0 0 0 2 6c0 1.691.7 3.22 1.826 4.31.203.196.359.4.453.619l.762 1.769A.5.5 0 0 0 5.5 13a.5.5 0 0 0 0 1 .5.5 0 0 0 0 1l.224.447a1 1 0 0 0 .894.553h2.764a1 1 0 0 0 .894-.553L10.5 15a.5.5 0 0 0 0-1 .5.5 0 0 0 0-1 .5.5 0 0 0 .288-.091L9.878 12H5.83l-.632-1.467a2.954 2.954 0 0 0-.676-.941 4.984 4.984 0 0 1-1.455-4.405l-.837-.836zm1.588-2.653.708.707a5 5 0 0 1 7.07 7.07l.707.707a6 6 0 0 0-8.484-8.484zm-2.172-.051a.5.5 0 0 1 .708 0l12 12a.5.5 0 0 1-.708.708l-12-12a.5.5 0 0 1 0-.708z"/>
+              </svg>
+              <p class="card-text mt-3 text-center">Nous améliorons nos algorithme afin de vous aider à trouver plus rapidement vos futures missions.</p>
+              <a routerLink="/" class="btn btn-primary">Retourner à la page d'acceuil</a>
+            </div>
+          </div>
+    </div>
+</div>
+<cookies-style></cookies-style>
+
+  

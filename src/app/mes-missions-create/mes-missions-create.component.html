@@ -1,0 +1,20 @@
+<div class="card mb-5 mt-3 card_mission" style="width: 18rem;" *ngFor="let m of mesMissionsCreate">
+    <div class="card-body ">
+      <h5 class="card-title">{{m.name}}</h5>
+      <p class="card-text mt-3">Nom de l'entreprise: <strong>{{m.userCreateMission.nameofEntreprise}}</strong></p>
+      <p class="card-text">Detail de la mission:<strong>{{m.details}}</strong></p>
+      <p class="card-text">Temps de la mission: {{m.time}}H</p>
+      <p class="card-text mt-3">Nombre de jour: {{m.nmbreJour}}J</p>
+      <p class="card-text mt-3">Mission disponible pour: <strong> {{m.availableForPersonn}} personne(s).</strong></p>
+      <p class="card-text mt-3">Prix de la mission: <strong>{{m.priceOfHours}}€/H</strong></p>
+      <p class="card-text mt-3">Prix total: <strong> {{m.totalPrice | currency: '€'}} </strong></p>
+      <p class="card-text mt-3">Pour le :<strong>{{m.when | date:'short'}}</strong></p>
+      <p class="card-text mt-3">Format de la date :<strong>Mois/Jour/Année, Heure</strong></p>
+      <p class="card-text mt-3 text-warning">INFO:AM heure du matin,PM Heure de  l'après midi.</p>
+      <p class="card-text mt-3">Adresse de l'entreprise: <strong>{{m.userCreateMission.locationofEntreprise}} {{m.userCreateMission.complementLocationofEntreprise}} {{m.userCreateMission.zipCode}}</strong></p>
+      <p class="card-text mt-3">Date de publication: <strong>{{m.date | date:'medium'}}</strong></p>
+      <div class="mesbtn d-flex">
+        <a class="btn btn-info"[routerLink]="['/mesMissionsEdit',m._id]">Modifier la mission</a>
+      </div>
+    </div>
+  </div>

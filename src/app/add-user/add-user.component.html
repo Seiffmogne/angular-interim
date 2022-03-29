@@ -1,0 +1,64 @@
+<div class="container">
+    <div class="row add-user">
+      <h6 class="haveNoCount">
+        <strong><a class="noCount" (click)="isSelected()">Je n'ai pas de compte!</a></strong>
+      </h6>
+      <div *ngIf="haveAnAccount" class="card text-center bg-light mb-5" style="width: 18rem;">
+        <div class="card-body">
+          <h6 class="card-title"><strong>inscription</strong></h6>
+          <form #form="ngForm" (ngSubmit)="createUser(form.value)">
+            <div class="name">
+            <input ngModel minlength="5" maxlength="200" name="name" #name="ngModel" type="text" class="form-control mt-3" id="name" placeholder="Nom" required>
+          </div>
+          <div class="alert alert-danger" *ngIf="name.touched && !name.valid">
+            <div *ngIf="name.errors && name.errors['required']">Un nom valide est requis!</div>
+            <div *ngIf="name.errors && name.errors['minlength']">Le nom de la mission doit avoir au moins 5 lettres.</div>
+          </div>
+            <div class="email">
+          <input ngModel name="email" #emails="ngModel" type="email" class="form-control mt-3" id="newEmail" placeholder="Adresse email" required>
+          <div class="alert alert-danger" *ngIf="emails.touched && !emails.valid">
+            <div *ngIf="emails.errors && emails.errors['required']">Un email valide est requis</div>
+            </div>
+            </div>
+            <div class="phoneNumber">
+              <input ngModel minlength="9" maxlength="10"  name="phoneNumber"  type="phoneNumber" #phoneNumber="ngModel" class="form-control mt-3" id="aPhoneNumber" placeholder="Numéro de téléphone" required>
+            </div>
+            <div class="alert alert-danger" *ngIf="phoneNumber.touched && !phoneNumber.valid">
+              <div *ngIf="phoneNumber.errors && phoneNumber.errors['required']">Un numéro de téléphone est requis.</div>
+              <div *ngIf="phoneNumber.errors && phoneNumber.errors['minlength']">Le numéro de téléphone doit contenir au moins 9 chiffres.</div>
+              </div>
+            <div class="password">
+              <input ngModel minlength="5" maxlength="1024"  name="password"  type="password" #password="ngModel" class="form-control mt-3" id="newPassword" placeholder="Mot de passe" required>
+            </div>
+            <div class="alert alert-danger" *ngIf="password.touched && !password.valid">
+              <div *ngIf="password.errors && password.errors['required']">Un mot de passe est requis</div>
+              <div *ngIf="password.errors && password.errors['minlength']">Le mot de passe doit contenir au moins 5 charactères.</div>
+              </div>
+          <label >
+            <div class="isEntreprise mt-3">
+            <input ngModel [(ngModel)]="aEntreprise" name="isEntreprise"  type="checkbox" #isEntreprise="ngModel"   id="isEntreprise">
+              J'ai une entreprise
+            </div>
+          </label>
+          <div class="locationofEntreprise" *ngIf="aEntreprise">
+            <input ngModel  name="locationofEntreprise"  type="text" #locationofEntreprise="ngModel" class="form-control mt-3" id="locationofEntreprise" placeholder="Adresse de l'entreprise" required>
+          </div>
+          <div class="complementAddress" *ngIf="aEntreprise">
+            <input ngModel  name="complementLocationofEntreprise"  type="text" #complementAddre="ngModel" class="form-control mt-3" id="complelocationofEntreprise" placeholder="Complément d'adresse" required>
+          </div>
+          <div class="complementAddress" *ngIf="aEntreprise">
+            <input ngModel  name="zipCode"  type="number" min="0" max="1000000" #zip="ngModel" class="form-control mt-3" id="zipCode" placeholder="Code Postale" required>
+          </div>
+          <div class="nameofEntreprise" *ngIf="aEntreprise">
+            <input ngModel minlength="3" maxlength="1000"  name="nameofEntreprise"  type="text" #nameofEntreprise="ngModel" class="form-control mt-3" id="nameofEntreprise" placeholder="Nom de l'entreprise" required>
+          </div>
+          <div class="nameofEntreprise" *ngIf="aEntreprise">
+            <input ngModel minlength="3" maxlength="1000"  name="siren"  type="text" #siren="ngModel" class="form-control mt-3" id="mon_siret" placeholder="Siret ou Siren" required>
+          </div>
+          
+          <button  class="btn btn-primary mt-3" [disabled]="!form.valid">Je m'inscris</button>
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>

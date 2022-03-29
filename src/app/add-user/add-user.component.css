@@ -1,0 +1,53 @@
+
+.card{
+    margin-left: 327px;
+    }
+    /*Paramètre sur Ordi*/
+    @media screen and (min-width:376px){
+        .card{
+            margin-left: -6px;
+            margin-top: 19px;
+            }
+            .mon_texte_connection{
+                margin-left:-40px;
+                margin-top: 3px;
+            }
+            .haveNoCount{
+                margin-left: 39px;
+
+            }
+    
+    }
+    /*Paramètre sur Téléphone*/
+    @media screen and (max-width:376px){
+         .card{
+            margin-left:-39px;
+            margin-top: 50px;
+    
+        }
+        .mon_texte_connection{
+            margin-top:16px;
+        }
+    
+    }
+
+    .isEntreprise{
+        margin-right:66px;
+    }
+    .noCount{
+        cursor: pointer;
+        color: black;
+    }
+
+    .add-user{
+        margin-left:421px;
+        margin-top: 39px;
+    }
+
+    @media screen and (max-width:376px){
+        .add-user{
+            margin-left:80px;;
+            margin-top: 39px;
+        }
+
+    }

@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="row">
+     <h5 class="d-flex justify-content-center align-items-center mt-3">Vous avez oublié votre mot de passe?</h5>
+     <h6 class="d-flex justify-content-center align-items-center mt-3">Vous allez recevoir un mail qui va vous permettre de modifier votre mot de passe en entrant et validant votre adresse mail.</h6>
+     <div class="ma-Card d-flex justify-content-center align-items-center mt-5">
+     <div class="card" style="width: 18rem;">
+        <form #myForm="ngForm" (ngSubmit)="sendMail(myForm.value)">
+        <div class="card-body">
+          <h5 class="card-title">Entrez votre adresse mail.</h5>
+          <div class="form-group">
+            <input ngModel minlength="5" maxlength="255" #mail="ngModel" name="email"  class="form-control mt-3" type="email" placeholder="Votre adresse mail">
+            </div>
+            <div class="alert alert-danger" *ngIf="mail.touched && !mail.valid">
+                <div *ngIf="mail.errors && mail.errors['required']">L'adresse mail est requis.</div>
+                <div *ngIf="mail.errors && mail.errors['minlength']">L'adresse mail doit avoir au moins {{ mail.errors && mail.errors['minlength'].requiredLength }} lettres.</div>
+            </div>
+          <p class="card-text mt-3 d-flex justify-content-center align-items-center text-primary">Vérifiez votre boîte mail ainsi que vos spams.</p>
+          <button  class="d-flex justify-content-center align-items-center btn btn-primary w-100">Valider</button>
+        </div>
+       </form>
+      </div>
+    </div>
+    </div>
+</div>

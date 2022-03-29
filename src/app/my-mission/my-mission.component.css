@@ -1,0 +1,27 @@
+.card_mission{
+    box-shadow: 3px 9px 15px grey;
+    border-radius: 6px;
+}
+   
+   /*Paramètre sur Ordi*/
+   @media screen and (min-width:376px){
+    .myMissionOne{
+        margin-left: -76px;
+     }
+   }
+
+
+ /*Paramètre sur Téléphone*/
+ @media screen and (max-width:576px){
+     .myMissionOne{
+         display:flex;
+         justify-content: center;
+         margin-left: 0px !important;
+     }
+}
+@media screen and (max-width:820px){
+    .myMissionOne{
+        margin-left: -16px;
+
+    }
+}

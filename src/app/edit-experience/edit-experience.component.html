@@ -1,0 +1,43 @@
+<form #Aexperience="ngForm" (ngSubmit)="editExperience(Aexperience.value)" class="d-flex  justify-content-center align-items-center mt-5 mb-3" >
+    <div class="card" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">Expérience professionnel</h5>
+          <div class="form-group" *ngIf="experience">
+              <label for="profession" class="mt-3">Intitulé du Poste</label>
+              <input  [(ngModel)]="experience.profession" name="profession" #prof="ngModel" type="text" minlength="3" maxlength="300" class="form-control mt-3"  placeholder="profession" required id="profession" >
+          </div>
+        
+          <div class="form-group" *ngIf="experience">
+            <label for="NameEntre" class="mt-3">Nom de l'entreprise</label>
+            <input [(ngModel)]="experience.nameOfCompagnie" type="text" minlength="2" maxlength="300" name="nameOfCompagnie" #nameCom="ngModel" class="form-control mt-3"  placeholder="Entreprise" required id="NameEntre">
+        </div>
+        <div class="form-group" *ngIf="experience">
+            <label for="localis" class="mt-3">Localisation(facultative)</label>
+            <input [(ngModel)]="experience.localisation" type="text" minlength="3" maxlength="2000" name="localisation" #loca="ngModel" class="form-control mt-3"  placeholder="Localisation"  id="localis">
+        </div>
+        <div class="form-group" *ngIf="experience">
+            <label for="begini" class="mt-3">Date de début</label>
+            <input [(ngModel)]="experience.dateOfBeginning" type="date" name="dateOfBeginning" #dateBeg="ngModel" class="form-control mt-3"  placeholder="Mois" required id="begini">
+        </div>
+        <div class="checkbox mt-3" *ngIf="experience">
+            <label>
+            <strong> Je travaille ici actuellement </strong>  <input [(ngModel)]="experience.actualJob"   name="actualJob" type="checkbox" >
+            </label>
+        </div>
+        <div class="form-group" *ngIf="experience &&  !experience.actualJob" >
+            <label for="End" class="mt-3">Date de fin(obligatoire)</label>
+            <input [(ngModel)]="experience.dateofEnd" value="theDateEnd" type="date" name="dateofEnd" #dateEnd="ngModel" class="form-control mt-3"    id="End">
+        </div>
+        <div class="form-group" *ngIf="experience">
+            <label for="Desc" class="mt-3">Description</label>
+            <textarea  minlength="3" class="form-control" maxlength="10000000" [(ngModel)]="experience.description" name="description" #descri="ngModel" id="Desc" cols="29" placeholder="Description facultative" ></textarea>
+        </div>
+        <div class="mnBtnPri d-flex justify-content-center align-items-center">
+            <button class="btn btn-primary mt-3" [disabled]="!Aexperience.valid">Enregistrer</button>
+        </div>
+        </div>     
+      </div>
+</form>
+<div class="mnBtnSuprr d-flex justify-content-center align-items-center mb-5">
+    <button (click)="deleteExperience()" class="btn btn-danger">Supprimer</button>
+</div>

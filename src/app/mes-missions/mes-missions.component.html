@@ -1,0 +1,22 @@
+<h3 *ngIf="logService.currentUser.isEntreprise; else isNotEntreprise" class="d-flex justify-content-center align-items-center mt-3">Mes missions ajoutées.</h3>
+<ng-template #isNotEntreprise>
+  <h3 class="d-flex justify-content-center align-items-center mt-3">Mes missions acceptées</h3>
+</ng-template>
+<div class="card mb-5 mt-3 card_mission" style="width: 18rem;" *ngFor="let m of mesMissions">
+    <div class="card-body ">
+      <h5 class="card-title">{{m.mission.name}}</h5>
+      <p class="card-text mt-3">Nom de l'entreprise: <strong>{{m.mission.userCreateMission.nameofEntreprise}}</strong></p>
+      <p class="card-text">Detail de la mission:<strong>{{m.mission.details}}</strong></p>
+      <p class="card-text">Temps de la mission: {{m.mission.time}}H</p>
+      <p class="card-text mt-3">Nombre de jour: {{m.mission.nmbreJour}}J</p>
+      <p class="card-text mt-3">Prix de la mission: <strong>{{m.mission.priceOfHours}} €/H</strong></p>
+      <p class="card-text mt-3">Prix total: <strong> {{m.mission.totalPrice}} €</strong></p>
+      <p class="card-text mt-3">Pour le :<strong>{{m.mission.when | date:'short'}}</strong></p>
+      <p class="card-text mt-3">Format de la date :<strong>Mois/Jour/Année, Heure</strong></p>
+      <p class="card-text mt-3 text-warning">INFO:AM heure du matin,PM Heure de  l'après midi.</p>
+      <p class="card-text mt-3">Adresse de l'entreprise: <strong>{{m.mission.userCreateMission.locationofEntreprise}} {{m.mission.userCreateMission.complementLocationofEntreprise}} {{m.mission.userCreateMission.zipCode}}</strong></p>
+      <p class="card-text mt-3">Date de publication: <strong>{{m.mission.date | date:'medium'}}</strong></p>
+      <a class="btn btn-danger" [routerLink]="['/mesMissions',m._id]">Modifier la mission</a>
+    </div>
+  </div>
+  <missionsCreate></missionsCreate>

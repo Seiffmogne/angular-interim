@@ -1,0 +1,12 @@
+.card_mission{
+    margin-left: 50px!important;
+    box-shadow: 3px 9px 15px grey;
+    border-radius: 6px;
+}
+
+.contain{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

@@ -1,0 +1,8 @@
+.card_exper{
+    box-shadow: 3px 9px 15px grey;
+    border-radius: 6px;
+
+}
+.mex_exper{
+    flex-direction: column;
+}
