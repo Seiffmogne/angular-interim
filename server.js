@@ -4,7 +4,7 @@ const app=express();
 
 app.use(express.static('dist/auto'));
 
-app.get('/*',(re,res)=>{
+app.get('/*',(req,res)=>{
 res.status(200).sendFile(path.join(__dirname+'dist/auto-copie/index.html'));
 });
 
