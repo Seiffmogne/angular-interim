@@ -51,20 +51,9 @@ theDate:any;
 
 
   }
-  addCategorie(categ:any){
-   this.categService.createCateg(categ).subscribe(res=>{
-    if(res){
-      this.tostrServi.success('La catégorie à bien été ajoutée.');
-      this.router.navigate(['/addMissions']);
-      
-    }
-   });
-
-  }
-  
   
   showFormCateg(){
-    this.isSelected=!this.isSelected;
+    this.router.navigate(['/add-category'])
 
   }
   getHours(year:number, month:number, day:number, hours:number, minute:number){

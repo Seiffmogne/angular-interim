@@ -52,6 +52,7 @@ import { SearchComponent } from './search/search.component';
 import { ConfirmDeleteComponent } from './confirm-delete/confirm-delete.component';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { AddCategComponent } from './add-categ/add-categ.component';
 
 
 
@@ -77,7 +78,8 @@ import { MatButtonModule } from '@angular/material/button';
     EditExperienceComponent,
     CookiesStyleComponent,
     SearchComponent,
-    ConfirmDeleteComponent
+    ConfirmDeleteComponent,
+    AddCategComponent
   ],
   imports: [
     BrowserModule,
@@ -135,6 +137,12 @@ import { MatButtonModule } from '@angular/material/button';
     {
       path:'parameter',
       component:ParameterComponent,
+      canActivate:[AuthGardService]
+
+    },
+    {
+      path:'add-category',
+      component:AddCategComponent,
       canActivate:[AuthGardService]
 
     },

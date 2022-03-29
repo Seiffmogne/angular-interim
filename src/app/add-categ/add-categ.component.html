@@ -1,0 +1,17 @@
+<form #f="ngForm" (ngSubmit)="addCategorie(f.value)">
+    <div class="container">
+        <div class="row">
+            <div class="form-group">
+                <label class="d-flex justify-content-center align-items-center mb-3" for="aCateg">Catégorie?</label>
+                <input class="form-control " minlength="3" maxlength="255" ngModel name="name" type="text" #aCateg="ngModel"placeholder="Ajouter une nouvelle catégorie." required>
+               </div>
+               <div class="alert alert-danger" *ngIf="aCateg.touched && !aCateg.valid">
+                   <div *ngIf="aCateg.errors && aCateg.errors['required']">Le nom de la catégorie doit être défini.</div>
+                   <div *ngIf="aCateg.errors &&aCateg.errors['minlength']">Le nom de la catégorie doit contenir au moins {{ aCateg.errors && aCateg.errors['minlength'].requiredLength }} lettres.</div>
+               </div>
+               <div class="my_btnC mt-3 mb-3 d-flex justify-content-center">
+               <button class="btn btn-primary " [disabled]="!f.valid">Ajouter la catégorie</button>
+           </div>  
+        </div>
+    </div>
+</form>
