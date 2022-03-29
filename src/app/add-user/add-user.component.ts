@@ -11,6 +11,7 @@ import { Component, OnInit } from '@angular/core';
 export class AddUserComponent implements OnInit {
   aEntreprise:boolean=false;
   haveAnAccount: boolean=false;
+  dontHave:any;
 
   constructor(
     private toastrSer:ToastrService,
