@@ -55,8 +55,8 @@ theDate:any;
    this.categService.createCateg(categ).subscribe(res=>{
     if(res){
       this.tostrServi.success('La catégorie à bien été ajoutée.');
-      //this.router.navigate(['/addMissions']);
-      window.location.reload();
+      this.router.navigate(['/addMissions']);
+      
     }
    });
 

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { LoginService } from './../services/login.service';
 import { ToastrService } from 'ngx-toastr';
 import { AddExperienceService } from './../services/add-experience.service';
@@ -18,6 +19,7 @@ export class ParameterComponent implements OnInit,OnDestroy {
   subscription:any;
 
   constructor(
+    private router:Router,
     private logService:LoginService,
     private toastrService:ToastrService,
     private experienceService:AddExperienceService,
@@ -47,7 +49,7 @@ export class ParameterComponent implements OnInit,OnDestroy {
    this.experienceService.addExperience(experience).subscribe(res=>{
      if(res){
        this.toastrService.success(`L'expérience a bien été enregistré.`);
-       window.location.reload();
+       this.router.navigate(['/missions']);
 
      }
    });
