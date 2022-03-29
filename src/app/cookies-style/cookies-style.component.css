@@ -16,6 +16,17 @@
     }
 }
 
+/*Paramétre Petit  Mobile */
+@media screen and (max-width:376px){
+    .aContain{
+        position: fixed;
+        bottom: -1px;
+    }
+
+
+}
+
+
 /*parametre Ordi */
 @media screen and (min-width:376px){
     .aContain{
