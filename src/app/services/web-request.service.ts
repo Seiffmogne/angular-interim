@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -8,7 +9,7 @@ export class WebRequestService {
   readonly Root_Url: string;
 
   constructor(private http:HttpClient) {
-    this.Root_Url = 'https://still-meadow-41486.herokuapp.com/api'
+    this.Root_Url = environment.Root_Url;
 
    }
    get(url: string) {

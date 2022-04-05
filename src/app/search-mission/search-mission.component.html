@@ -1,8 +1,9 @@
 <div class="card mb-5 mt-3 card_mission" style="width: 18rem;" *ngFor="let m of missionSearch">
     <div class="card-body ">
       <h5 class="card-title">{{m.name}}</h5>
+      <h5 class="card-title" *ngIf="!m.name">{{m.category.name}}</h5>
       <p class="card-text mt-3">Nom de l'entreprise: <strong>{{m.userCreateMission.nameofEntreprise}}</strong></p>
-      <p class="card-text">Detail de la mission:<strong>{{m.details}}</strong></p>
+      <p class="card-text" *ngIf="m.details">Detail de la mission:<strong>{{m.details}}</strong></p>
       <p class="card-text">Temps de la mission: {{m.time}}H/J</p>
       <p class="card-text mt-3">Nombre de jour: {{m.nmbreJour}}J</p>
       <p class="card-text mt-3">Mission disponible pour: <strong> {{m.availableForPersonn}} personne(s).</strong></p>

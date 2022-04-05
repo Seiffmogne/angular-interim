@@ -4,7 +4,7 @@
 </ng-template>
 <div class="card mb-5 mt-3 card_mission" style="width: 18rem;" *ngFor="let m of mesMissions">
     <div class="card-body ">
-      <h5 class="card-title">{{m.mission.name}}</h5>
+      <h5 class="card-title">{{m.mission.category.name}}</h5>
       <p class="card-text mt-3">Nom de l'entreprise: <strong>{{m.mission.userCreateMission.nameofEntreprise}}</strong></p>
       <p class="card-text">Detail de la mission:<strong>{{m.mission.details}}</strong></p>
       <p class="card-text">Temps de la mission: {{m.mission.time}}H</p>

@@ -16,7 +16,7 @@ export class MissionComponent implements OnInit, OnDestroy {
 
   ngOnInit(): void {
     this.subscription=this.missService.postMission().subscribe(miss=>{
-      this.missions=miss
+      this.missions=miss;
       if(this.missions['length']!== 0){
         this.number=false;
         

@@ -46,6 +46,7 @@ theDate:any;
       if(res){
         //alert('La mission a été ajouté');
         this.tostrServi.success('La mission à bien été ajoutée.');
+        this.router.navigate(['/missions']);
       } 
     });
 
@@ -56,6 +57,7 @@ theDate:any;
     this.router.navigate(['/add-category'])
 
   }
+
   getHours(year:number, month:number, day:number, hours:number, minute:number){
     const aDate= new Date(year, month-1, day, hours, minute);
     if(aDate<this.minDate){
@@ -64,6 +66,7 @@ theDate:any;
     }else{
       this.theDate=aDate;
       this.tostrServi.success('La date à bien été enregistré.');
+      this.isSelected=!this.isSelected;
 
     }
 

@@ -7,7 +7,7 @@
     <div class="col-12 col-sm-6 myMissionOne">
       <div class="card mb-5 mt-3 card_mission" style="width: 18rem;">
       <div class="card-body">
-        <h5 class="card-title" *ngIf="myMission">{{myMission.name}}</h5>
+        <h5 class="card-title" *ngIf="myMission">{{myMission.category.name}}</h5>
         <p class="card-text mt-3" *ngIf="myMission">Nom de l'entreprise:<strong>{{myMission.userCreateMission.nameofEntreprise}}</strong></p>
         <p class="card-text" *ngIf="myMission" >Detail de la mission:<strong>{{myMission.details}}</strong></p>
         <p class="card-text" *ngIf="myMission">Temps de la mission:{{myMission.time}}H</p>

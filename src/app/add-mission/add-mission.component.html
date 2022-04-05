@@ -7,37 +7,7 @@
           <div class="card form_card" style="width: 40rem;">
             <div class="card-body">
                 <div class="form-group mt-3">
-                    <label  for="name" class="d-flex justify-content-center align-items-center mb-3">Nom de la mission</label>
-                    <input minlength="5" maxlength="255" ngModel #name="ngModel" name="name" type="text" class="form-control" id="name" placeholder="nom de la mission" required>
-                    <div class="alert alert-danger" *ngIf="name.touched && !name.valid">
-                        <div *ngIf="name.errors && name.errors['required']">Le nom de la mission est requis.</div>
-                        <div *ngIf="name.errors && name.errors['minlength']">Le nom de la mission doit avoir au moins {{ name.errors && name.errors['minlength'].requiredLength }} lettres.</div>
-                    </div>
-                </div>
-                <!--On le voit pas sur Ordi-->
-                <div class="form-group mt-3 d-block d-sm-none">
-                    <label for="detail" class="d-flex justify-content-center align-items-center mb-3">Détail de la mission</label>
-                    <textarea minlength="10" maxlength="1024" ngModel name="details" #detail="ngModel" id="detail" cols="30" placeholder="Vous devez indiquez à l'intérimaire ce qu'il devra faire." required></textarea>
-                    <div class="alert alert-danger" *ngIf="detail.touched && !detail.valid">
-                        <div *ngIf="detail.errors && detail.errors['required']">La mission doit être détaillé.</div>
-                        <div *ngIf="detail.errors && detail.errors['minlength']">Le détail de la mission doit contenir au moins {{ detail.errors && detail.errors['minlength'].requiredLength }} lettres.</div>
-                    </div>
-                </div>
-                <!--Fin on le voit pas sur Ordi-->
-
-
-                <!--On le voit pas sur téléphone-->
-                <div class="form-group mt-3 d-none d-sm-block">
-                    <label for="detail" class="d-flex justify-content-center align-items-center mb-3">Détail de la mission</label>
-                    <textarea minlength="10" maxlength="1024"  id="detail" ngModel name="details" #detail="ngModel" cols="70" placeholder="Vous devez indiquez à l'intérimaire ce qu'il devra faire." required></textarea>
-                    <div class="alert alert-danger" *ngIf="detail.touched && !detail.valid">
-                        <div *ngIf="detail.errors && detail.errors['required']">La mission doit être détaillé.</div>
-                        <div *ngIf="detail.errors && detail.errors['minlength']">Le détail de la mission doit contenir au moins {{ detail.errors && detail.errors['minlength'].requiredLength }} lettres.</div>
-                    </div>
-                </div>
-                <!--fin on le voit pas sur téléphone-->
-                <div class="form-group mt-3">
-                    <label class="mb-3 d-flex justify-content-center align-items-center" for="categ">Sélectionner la catégorie</label>
+                    <label class="mb-3 d-flex justify-content-center align-items-center" for="categ">Sélectionner le métier</label>
                     <select ngModel name="categoryId" #categ="ngModel" id="categ" class="form-control mb-3">
                         <option value=""></option>
                         <option *ngFor="let categ of category" [ngValue]="categ._id">{{categ.name}}</option>
@@ -47,9 +17,23 @@
                    Une catégorie doit être sélectionné.
                 </div>
                 <div class="add_categ d-flex justify-content-center align-items-center mb-3">
-                    <a class="text-primary" (click)="showFormCateg()">Ajouter une catégorie?</a>
+                    <a class="text-primary" (click)="showFormCateg()" >Ajouter un métier.</a>
                 </div>
-                <form #date="ngForm" (ngSubmit)="getHours(year.value,month.value,day.value,hours.value,minute.value)">
+                <!--On le voit pas sur Ordi-->
+                <div class="form-group mt-3 d-block d-sm-none">
+                    <label for="detail" class="d-flex justify-content-center align-items-center mb-3">Détail de la mission</label>
+                    <textarea  maxlength="1024" ngModel name="details" #detail="ngModel" id="detail" cols="30" placeholder="Vous devez indiquez à l'intérimaire ce qu'il devra faire." ></textarea>
+                </div>
+                <!--Fin on le voit pas sur Ordi-->
+
+
+                <!--On le voit pas sur téléphone-->
+                <div class="form-group mt-3 d-none d-sm-block">
+                    <label for="detail" class="d-flex justify-content-center align-items-center mb-3">Détail de la mission</label>
+                    <textarea  maxlength="1024"  id="detail" ngModel name="details" #detail="ngModel" cols="70" placeholder="Vous devez indiquez à l'intérimaire ce qu'il devra faire." ></textarea>
+                </div>
+                <!--fin on le voit pas sur téléphone-->
+                <form #date="ngForm" (ngSubmit)="getHours(year.value,month.value,day.value,hours.value,minute.value)" *ngIf="categ.value">
                     <label for="date" class="d-flex justify-content-center align-items-center mt-3 mb-3"><strong>Date de la mission</strong></label>
                         <div class="form-group d-flex">
                            <input ngModel #year="ngModel" name="year" style="margin: 3px;" min="2022" max="2050" class="form-control" type="number" required placeholder="année" id="date">
@@ -65,7 +49,7 @@
                         <button class="btn btn-primary" [disabled]="!date.valid">Valider la date</button>
                        </div>
                     </form>
-                <div class="My_element d-flex">
+                <div class="My_element d-flex" *ngIf="isSelected">
                 <div class="col-8 col-sm-4 mt-3">
                 <label for="nbre_heure" class="d-flex justify-content-center align-items-center mb-3">Nombre d'heure</label>
                 <input name="time"  ngModel #nmbredeheure="ngModel" min="1" max="24" type="number" class="form-control" id="nbre_heure" placeholder="heure" required>
@@ -81,7 +65,7 @@
                 </div>
                 </div>
             </div>
-            <div class="My_element d-flex">
+            <div class="My_element d-flex" *ngIf="isSelected" >
                 <div class="col-8 col-sm-4 mt-3">
                 <label class="d-flex justify-content-center align-items-center mb-3" for="priceForH">Prix/Heure</label>
                 <input type="number" class="form-control" ngModel #priceForHours="ngModel" name="priceOfHours" required placeholder="prix/heure">
@@ -98,35 +82,13 @@
                 </div>
             </div>
             <div class="mon_btn d-flex justify-content-center mt-3">
-            <button class="btn btn-primary" [disabled]="!form.valid">Ajouter la mission</button>
+            <button class="btn btn-primary" *ngIf="isSelected"  [disabled]="!form.valid">Ajouter la mission</button>
             </div>
 
             </div>
         </div>
     
         </form>
-    </div>
-    <div class="col-12 col-sm-6 mt-5 mb-5 d-flex justify-content-center align-items-center">
-        <div class="card card_add_mission" style="width: 18rem;">
-            <div class="card-body">
-            <h5 class="card-title" *ngIf="name.value">{{name.value}}</h5>
-            <h5 class="card-title" *ngIf="!name.value">Le nom de la mission</h5>
-            <p class="card-text" *ngIf="!detail.value">Détail de la mission: <strong>Some quick example text to build on the card title and make up the bulk of the card's content.</strong></p>
-            <p class="card-text" *ngIf="detail.value">Détail de la mission:<strong>{{detail.value}}</strong></p>
-            <p *ngIf="!nmbredeheure.value">Nombre d'heure:<strong>10 H</strong></p>
-            <p *ngIf="nmbredeheure.value"> Nombre d'heure:<strong>{{nmbredeheure.value}} H</strong></p>
-            <p class="card-text" *ngIf="!availableForPer.value">Mission disponible pour:  <strong>5 intérimaire(s).</strong></p>
-            <p class="card-text" *ngIf="availableForPer.value">Mission disponible pour: <strong> {{availableForPer.value}} intérimaire(s).</strong></p>
-            <p class="card-text" *ngIf="!priceForHours.value">Prix de la mission: <strong>10.15€/heure.</strong></p>
-            <p class="card-text" *ngIf="priceForHours.value">Prix de la mission: <strong>{{priceForHours.value}}€/heure.</strong></p>
-            <a class="card-text text-info mt-3 prix" *ngIf="nmbredeheure.value && priceForHours.value && nombredeJour.value" 
-                 (click)="calculateTotalPrice(nmbredeheure.value,priceForHours.value,nombredeJour.value)">
-                Calculer le prix total de la mission en clickant sur ce texte: <strong>{{totalPrice}} </strong> €
-            </a>
-            <p *ngIf="!nombredeJour.value">Nombre de jours:<strong>10 J</strong></p>
-            <p *ngIf="nombredeJour.value">Nombre de jours:<strong>{{nombredeJour.value}} J</strong></p>
-            </div>
-        </div>
     </div>
     </div>
 </div>
