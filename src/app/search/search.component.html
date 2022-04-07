@@ -12,7 +12,7 @@
                   <div class="zipCode">
                       <input ngModel name="zipCode" #local="ngModel" type="text" class="form-control mt-3" placeholder="Code postal" >  
                       </div>    
-                <button  class="btn btn-primary mt-3 mnbtn">Rechercher</button>
+                <button *ngIf="name.value || local.value"  class="btn btn-primary mt-3 mnbtn">Rechercher</button>
               </form>
             
             </div>
