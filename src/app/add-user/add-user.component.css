@@ -40,14 +40,6 @@
     }
 
     .add-user{
-        margin-left:421px;
-        margin-top: 39px;
-    }
-
-    @media screen and (max-width:376px){
-        .add-user{
-            margin-left:80px;;
+        margin-left:80px;;
             margin-top: 39px;
-        }
-
     }
